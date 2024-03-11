@@ -106,7 +106,7 @@ COMPONENTS = {
         "source": "CLIP-v2-WD.txt",
         "prefix": "cond_stage_model.model."
     },
-    "CLIP-XL-SD": {
+    "CLIP-XL": {
         "keys": {},
         "source": "CLIP-XL-SD.txt",
         "prefix": "conditioner.embedders.1.model."
@@ -198,7 +198,7 @@ COMPONENT_CLASS = {
     "CLIP-v1-NAI": "CLIP-v1",
     "CLIP-v2-SD": "CLIP-v2",
     "CLIP-v2-WD": "CLIP-v2",
-    "CLIP-XL-SD": "CLIP-XL",
+    "CLIP-XL": "CLIP-XL",
     "CLIP-XL-Refiner": "CLIP-XL",
     "CLIP-XL-AUX": "CLIP-XL-AUX",
     "CLIP-XL-PLUS": "CLIP-XL-PLUS",
@@ -257,7 +257,7 @@ ARCHITECTURES = {
         "prefixed": False
     },
     "UNET-XL": {
-        "classes": ["UNET-XL-SD"],
+        "classes": ["UNET-XL"],
         "optional": [],
         "required": [],
         "prefixed": False
@@ -311,7 +311,7 @@ ARCHITECTURES = {
         "prefixed": False
     },
     "CLIP-XL": {
-        "classes": ["CLIP-XL-SD"],
+        "classes": ["CLIP-XL"],
         "optional": [],
         "required": [],
         "prefixed": False
@@ -802,13 +802,13 @@ def compute_metric(model, arch=None):
     if arch == None:
         arch = inspect_model(model)
 
-    unet_keys = get_allowed_keys(arch, ["UNET-v1", "UNET-v1-Pix2Pix", "UNET-v2", "UNET-v2-Depth"])
+    unet_keys = get_allowed_keys(arch, ["UNET-v1", "UNET-v1-Pix2Pix", "UNET-v2", "UNET-v2-Depth", "UNET-XL"])
     vae_keys = get_allowed_keys(arch, ["VAE-v1"])
-    clip_keys = get_allowed_keys(arch, ["CLIP-v1", "CLIP-v2"])
+    clip_keys = get_allowed_keys(arch, ["CLIP-v1", "CLIP-v2", "CLIP-XL-AUX"])
 
     unet, vae, clip = 0, 0, 0
 
-    is_clip_v1 = "CLIP-v1" in next(iter(arch.values()))
+    is_clip_v1 = "CLIP-v1" in next(iter(arch.values())) or "CLIP-XL-AUX" in next(iter(arch.values()))
 
     for k in model:
         kk = (k, tensor_shape(k, model[k]))
