@@ -502,6 +502,18 @@ ARCHITECTURES = {
         "required": [],
         "prefixed": True
     },
+    "LoRA-XL-TE": {
+        "classes": ["LoRA-XL-CLIP", "LoRA-XL-AUX-CLIP"],
+        "optional": OPTIONAL,
+        "required": [],
+        "prefixed": True
+    },
+    "LyCO-XL-TE": {
+        "classes": ["LyCO-XL-CLIP", "LyCO-XL-AUX-CLIP"],
+        "optional": OPTIONAL,
+        "required": [],
+        "prefixed": True
+    },
     # standalone component architectures, for detecting broken models
     "UNET-v1-BROKEN": {
         "classes": ["UNET-v1"],
