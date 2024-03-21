@@ -155,6 +155,18 @@ COMPONENTS = {
         "source": "LoRA-XL-AUX-CLIP.txt",
         "prefix": ""
     },
+    "LyCO-XL-CLIP": {
+        "keys": {},
+        "shapes": {},
+        "source": "LyCO-XL-CLIP.txt",
+        "prefix": ""
+    },
+    "LyCO-XL-AUX-CLIP": {
+        "keys": {},
+        "shapes": {},
+        "source": "LyCO-XL-AUX-CLIP.txt",
+        "prefix": ""
+    },
     "LoRA-v1-UNET": {
         "keys": {},
         "shapes": {},
@@ -173,11 +185,29 @@ COMPONENTS = {
         "source": "LoRA-XL-UNET.txt",
         "prefix": ""
     },
+    "LoRA-XL-UNET-S": {
+        "keys": {},
+        "shapes": {},
+        "source": "LoRA-XL-UNET-S.txt",
+        "prefix": ""
+    },
+    "LyCO-XL-UNET": {
+        "keys": {},
+        "shapes": {},
+        "source": "LyCO-XL-UNET.txt",
+        "prefix": ""
+    },
     "ControlNet-v1-SD": {
         "keys": {},
         "shapes": {},
         "source": "ControlNet-v1-SD.txt",
         "prefix": "control_model."
+    },
+    "Clipvision-G": {
+        "keys": {},
+        "shapes": {},
+        "source": "Clipvision-G.txt",
+        "prefix": ""
     },
 }
 
@@ -208,9 +238,14 @@ COMPONENT_CLASS = {
     "LoRA-v1A-UNET": "LoRA-v1A-UNET",
     "LoRA-v1A-CLIP": "LoRA-v1A-CLIP",
     "LoRA-XL-UNET": "LoRA-XL-UNET",
+    "LoRA-XL-UNET-S": "LoRA-XL-UNET-S",
     "LoRA-XL-CLIP": "LoRA-XL-CLIP",
     "LoRA-XL-AUX-CLIP": "LoRA-XL-AUX-CLIP",
+    "LyCO-XL-UNET": "LyCO-XL-UNET",
+    "LyCO-XL-CLIP": "LyCO-XL-CLIP",
+    "LyCO-XL-AUX-CLIP": "LyCO-XL-AUX-CLIP",
     "ControlNet-v1-SD": "ControlNet-v1",
+    "Clipvision-G": "Clipvision-G",
 }
 
 OPTIONAL = [
@@ -229,6 +264,7 @@ OPTIONAL = [
     ("sqrt_recip_alphas_cumprod", (1000,)),
     ("sqrt_recipm1_alphas_cumprod", (1000,)),
     ("logvar", (1000,)),
+    ("visual_projection.weight", (1280,1664,)),
 ]
 
 ARCHITECTURES = {
@@ -288,6 +324,18 @@ ARCHITECTURES = {
     },
     "LoRA-XL-UNET": {
         "classes": ["LoRA-XL-UNET"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
+    "LoRA-XL-UNET-S": {
+        "classes": ["LoRA-XL-UNET-S"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
+    "LyCO-XL-UNET": {
+        "classes": ["LyCO-XL-UNET"],
         "optional": [],
         "required": [],
         "prefixed": False
@@ -352,6 +400,18 @@ ARCHITECTURES = {
         "required": [],
         "prefixed": False
     },
+    "LyCO-XL-CLIP": {
+        "classes": ["LyCO-XL-CLIP"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
+    "LyCO-XL-AUX-CLIP": {
+        "classes": ["LyCO-XL-AUX-CLIP"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
     "Depth-v2": {
         "classes": ["Depth-v2"],
         "optional": [],
@@ -363,6 +423,12 @@ ARCHITECTURES = {
         "optional": [],
         "required": [],
         "prefixed": False
+    },
+    "Clipvision-G": {
+        "classes": ["Clipvision-G"],
+        "optional": [],
+        "required": [],
+        "prefixed": True
     },
     "SD-v1": {
         "classes": ["UNET-v1", "VAE-v1", "CLIP-v1"],
@@ -418,6 +484,12 @@ ARCHITECTURES = {
         "required": [],
         "prefixed": True
     },
+    "SD-XL-Plusvision": {
+        "classes": ["UNET-XL", "VAE-v1", "CLIP-XL", "CLIP-XL-AUX", "Clipvision-G"],
+        "optional": OPTIONAL,
+        "required": [],
+        "prefixed": True
+    },
     "EMA-v1": {
         "classes": ["EMA-UNET-v1"],
         "optional": OPTIONAL,
@@ -444,6 +516,12 @@ ARCHITECTURES = {
     },
     "LoRA-XL": {
         "classes": ["LoRA-XL-CLIP", "LoRA-XL-AUX-CLIP", "LoRA-XL-UNET"],
+        "optional": OPTIONAL,
+        "required": [],
+        "prefixed": True
+    },
+    "LyCO-XL": {
+        "classes": ["LyCO-XL-CLIP", "LyCO-XL-AUX-CLIP", "LyCO-XL-UNET"],
         "optional": OPTIONAL,
         "required": [],
         "prefixed": True
@@ -531,7 +609,7 @@ def tensor_size(t):
 def tensor_shape(key, data):
     if hasattr(data, 'shape'):
         shape = tuple(data.shape)
-        for c in ["LoRA-v1-UNET", "LoRA-v1-CLIP", "LoRA-v1A-CLIP", "LoRA-v1A-UNET", "LoRA-XL-CLIP", "LoRA-XL-AUX-CLIP", "LoRA-XL-UNET"]:
+        for c in ["LoRA-v1-UNET", "LoRA-v1-CLIP", "LoRA-v1A-CLIP", "LoRA-v1A-UNET", "LoRA-XL-CLIP", "LoRA-XL-AUX-CLIP", "LoRA-XL-UNET", "LoRA-XL-UNET-S", "LyCO-XL-CLIP", "LyCO-XL-AUX-CLIP", "LyCO-XL-UNET"]:
             if key in COMPONENTS[c]['shapes']:
                 lora_shape = COMPONENTS[c]['shapes'][key]
                 if len(shape) == len(lora_shape):
