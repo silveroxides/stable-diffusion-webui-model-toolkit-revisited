@@ -121,11 +121,6 @@ COMPONENTS = {
         "source": "CLIP-v1-SD.txt",
         "prefix": "conditioner.embedders.0.transformer.text_model."
     },
-    "CLIP-XL-PLUS": {
-        "keys": {},
-        "source": "CLIP-v1-SD.txt",
-        "prefix": "conditioner.embedders.2.transformer.text_model."
-    },
     "Depth-v2-SD": {
         "keys": {},
         "source": "Depth-v2-SD.txt",
@@ -231,7 +226,6 @@ COMPONENT_CLASS = {
     "CLIP-XL": "CLIP-XL",
     "CLIP-XL-Refiner": "CLIP-XL",
     "CLIP-XL-AUX": "CLIP-XL-AUX",
-    "CLIP-XL-PLUS": "CLIP-XL-PLUS",
     "Depth-v2-SD": "Depth-v2",
     "LoRA-v1-UNET": "LoRA-v1-UNET",
     "LoRA-v1-CLIP": "LoRA-v1-CLIP",
@@ -370,12 +364,6 @@ ARCHITECTURES = {
         "required": [],
         "prefixed": False
     },
-    "CLIP-XL-PLUS": {
-        "classes": ["CLIP-XL-PLUS"],
-        "optional": [],
-        "required": [],
-        "prefixed": False
-    },
     "LoRA-v1-CLIP": {
         "classes": ["LoRA-v1-CLIP"],
         "optional": [],
@@ -474,18 +462,6 @@ ARCHITECTURES = {
     },
     "SD-XL-Inpainting": {
         "classes": ["UNET-XL-Inpainting", "VAE-v1", "CLIP-XL", "CLIP-XL-AUX"],
-        "optional": OPTIONAL,
-        "required": [],
-        "prefixed": True
-    },
-    "SD-XL-Plusclip": {
-        "classes": ["UNET-XL", "VAE-v1", "CLIP-XL", "CLIP-XL-AUX", "CLIP-XL-PLUS"],
-        "optional": OPTIONAL,
-        "required": [],
-        "prefixed": True
-    },
-    "SD-XL-Plusvision": {
-        "classes": ["UNET-XL", "VAE-v1", "CLIP-XL", "CLIP-XL-AUX", "Clipvision-G"],
         "optional": OPTIONAL,
         "required": [],
         "prefixed": True
