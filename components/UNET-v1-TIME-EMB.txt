@@ -1,0 +1,4 @@
+time_embed.0.bias [1280]
+time_embed.0.weight [1280,320]
+time_embed.2.bias [1280]
+time_embed.2.weight [1280,1280]

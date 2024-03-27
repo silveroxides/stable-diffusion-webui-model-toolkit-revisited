@@ -31,6 +31,16 @@ COMPONENTS = {
         "source": "UNET-v1-SD.txt",
         "prefix": "model.diffusion_model."
     },
+    "UNET-v1-UP": {
+        "keys": {},
+        "source": "UNET-v1-UP.txt",
+        "prefix": "model_ema.diffusion_model."
+    },
+    "UNET-v1-DOWN": {
+        "keys": {},
+        "source": "UNET-v1-DOWN.txt",
+        "prefix": "model_ema.diffusion_model."
+    },
     "UNET-v1-EMA": {
         "keys": {},
         "source": "UNET-v1-EMA.txt",
@@ -51,6 +61,26 @@ COMPONENTS = {
         "source": "UNET-v1-Pix2Pix-EMA.txt",
         "prefix": "model_ema.diffusion_model"
     },
+#    "UNET-v1-SKIP": {
+#        "keys": {},
+#        "source": "UNET-v1-SKIP.txt",
+#        "prefix": ""
+#    },
+#    "UNET-v1-EMBLAY": {
+#        "keys": {},
+#        "source": "UNET-v1-EMBLAY.txt",
+#        "prefix": ""
+#    },
+#    "UNET-v1-TIME-EMB": {
+#        "keys": {},
+#        "source": "UNET-v1-TIME-EMB.txt",
+#        "prefix": ""
+#    },
+#    "UNET-v1-MID": {
+#        "keys": {},
+#        "source": "UNET-v1L-MID.txt",
+#        "prefix": ""
+#    },
     "UNET-v2-SD": {
         "keys": {},
         "source": "UNET-v2-SD.txt",
@@ -81,6 +111,36 @@ COMPONENTS = {
         "source": "UNET-XL-Inpainting.txt",
         "prefix": "model.diffusion_model."
     },
+    "UNET-XL-UP": {
+        "keys": {},
+        "source": "UNET-v1-UP.txt",
+        "prefix": "model_ema.diffusion_model."
+    },
+    "UNET-XL-DOWN": {
+        "keys": {},
+        "source": "UNET-XL-DOWN.txt",
+        "prefix": "model_ema.diffusion_model."
+    },
+#    "UNET-XL-SKIP": {
+#        "keys": {},
+#        "source": "UNET-v1-SKIP.txt",
+#        "prefix": ""
+#    },
+#    "UNET-XL-EMBLAY": {
+#        "keys": {},
+#        "source": "UNET-v1-EMBLAY.txt",
+#        "prefix": ""
+#    },
+#    "UNET-XL-TIME-EMB": {
+#        "keys": {},
+#        "source": "UNET-v1-TIME-EMB.txt",
+#        "prefix": ""
+#    },
+#    "UNET-XL-MID": {
+#        "keys": {},
+#        "source": "UNET-v1-MID.txt",
+#        "prefix": ""
+#    },
     "VAE-v1-SD": {
         "keys": {},
         "source": "VAE-v1-SD.txt",
@@ -208,16 +268,28 @@ COMPONENTS = {
 
 COMPONENT_CLASS = {
     "UNET-v1-SD": "UNET-v1",
+    "UNET-v1-UP": "UNET-v1-UP",
+    "UNET-v1-DOWN": "UNET-v1-DOWN",
     "UNET-v1-EMA": "EMA-UNET-v1",
     "UNET-v1-Inpainting": "UNET-v1",
     "UNET-v1-Pix2Pix": "UNET-v1-Pix2Pix",
     "UNET-v1-Pix2Pix-EMA": "EMA-UNET-v1-Pix2Pix",
+    "UNET-v1-SKIP": "UNET-v1-SKIP",
+    "UNET-v1-EMBLAY": "UNET-v1-EMBLAY",
+    "UNET-v1-TIME-EMB": "UNET-v1-TIME-EMB",
+    "UNET-v1-MID": "UNET-v1-MID",
     "UNET-v2-SD": "UNET-v2",
     "UNET-v2-Inpainting": "UNET-v2",
     "UNET-v2-Depth": "UNET-v2-Depth",
     "UNET-XL-SD": "UNET-XL",
     "UNET-XL-Refiner": "UNET-XL-Refiner",
     "UNET-XL-Inpainting": "UNET-XL-Inpainting",
+    "UNET-XL-UP": "UNET-XL-UP",
+    "UNET-XL-DOWN": "UNET-XL-DOWN",
+    "UNET-XL-SKIP": "UNET-XL-SKIP",
+    "UNET-XL-EMBLAY": "UNET-XL-EMBLAY",
+    "UNET-XL-TIME-EMB": "UNET-XL-TIME-EMB",
+    "UNET-XL-MID": "UNET-XL-MID",
     "VAE-v1-SD": "VAE-v1",
     "CLIP-v1-SD": "CLIP-v1",
     "CLIP-v1-NAI": "CLIP-v1",
@@ -268,12 +340,48 @@ ARCHITECTURES = {
         "required": [],
         "prefixed": False
     },
+    "UNET-v1-UP": {
+        "classes": ["UNET-v1-UP"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
+    "UNET-v1-DOWN": {
+        "classes": ["UNET-v1-DOWN"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
     "UNET-v1-Pix2Pix": {
         "classes": ["UNET-v1-Pix2Pix"],
         "optional": [],
         "required": [],
         "prefixed": False
     },
+#    "UNET-v1-MID": {
+#        "classes": ["UNET-v1-MID"],
+#        "optional": [],
+#        "required": [],
+#        "prefixed": False
+#    },
+#    "UNET-v1-TIME-EMB": {
+#        "classes": ["UNET-v1-TIME-EMB"],
+#        "optional": [],
+#        "required": [],
+#        "prefixed": False
+#    },
+#    "UNET-v1-EMBLAY": {
+#        "classes": ["UNET-v1-EMBLAY"],
+#        "optional": [],
+#        "required": [],
+#        "prefixed": False
+#    },
+#    "UNET-v1-SKIP": {
+#        "classes": ["UNET-v1-SKIP"],
+#        "optional": [],
+#        "required": [],
+#        "prefixed": False
+#    },
     "UNET-v2": {
         "classes": ["UNET-v2"],
         "optional": [],
@@ -304,6 +412,42 @@ ARCHITECTURES = {
         "required": [],
         "prefixed": False
     },
+    "UNET-XL-UP": {
+        "classes": ["UNET-XL-UP"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
+    "UNET-XL-DOWN": {
+        "classes": ["UNET-XL-DOWN"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
+#    "UNET-XL-MID": {
+#        "classes": ["UNET-XL-MID"],
+#        "optional": [],
+#        "required": [],
+#        "prefixed": False
+#    },
+#    "UNET-XL-TIME-EMB": {
+#        "classes": ["UNET-XL-TIME-EMB"],
+#        "optional": [],
+#        "required": [],
+#        "prefixed": False
+#    },
+#    "UNET-XL-EMBLAY": {
+#        "classes": ["UNET-XL-EMBLAY"],
+#        "optional": [],
+#        "required": [],
+#        "prefixed": False
+#    },
+#    "UNET-XL-SKIP": {
+#        "classes": ["UNET-XL-SKIP"],
+#        "optional": [],
+#        "required": [],
+#        "prefixed": False
+#    },
     "LoRA-v1-UNET": {
         "classes": ["LoRA-v1-UNET"],
         "optional": [],
@@ -424,6 +568,12 @@ ARCHITECTURES = {
         "required": [],
         "prefixed": True
     },
+    "SD-v1-ALT": {
+        "classes": ["UNET-v1-UP", "UNET-v1-DOWN", "VAE-v1", "CLIP-v1"],
+        "optional": OPTIONAL,
+        "required": [],
+        "prefixed": True
+    },
     "SD-v1-Pix2Pix": {
         "classes": ["UNET-v1-Pix2Pix", "VAE-v1", "CLIP-v1"],
         "optional": OPTIONAL,
@@ -466,6 +616,24 @@ ARCHITECTURES = {
         "required": [],
         "prefixed": True
     },
+    "SD-XL-ALT": {
+        "classes": ["UNET-XL-UP", "UNET-XL-DOWN", "VAE-v1", "CLIP-XL", "CLIP-XL-AUX"],
+        "optional": OPTIONAL,
+        "required": [],
+        "prefixed": True
+    },
+    "SD-XL-LoRAXL-CLIP": {
+        "classes": ["LoRA-XL-CLIP", "LoRA-XL-AUX-CLIP"],
+        "optional": OPTIONAL,
+        "required": [],
+        "prefixed": True
+    },
+    "SD-XL-LoRAUX-CLIP": {
+        "classes": ["LoRA-XL-AUX-CLIP"],
+        "optional": OPTIONAL,
+        "required": [],
+        "prefixed": True
+    },
     "EMA-v1": {
         "classes": ["EMA-UNET-v1"],
         "optional": OPTIONAL,
@@ -474,6 +642,18 @@ ARCHITECTURES = {
     },
     "EMA-v1-Pix2Pix": {
         "classes": ["EMA-UNET-v1-Pix2Pix"],
+        "optional": OPTIONAL,
+        "required": [],
+        "prefixed": True
+    },
+    "SD-v1-UNET": {
+        "classes": ["UNET-v1-UP", "UNET-v1-DOWN"],
+        "optional": OPTIONAL,
+        "required": [],
+        "prefixed": True
+    },
+    "SD-XL-UNET": {
+        "classes": ["UNET-XL-UP", "UNET-XL-DOWN"],
         "optional": OPTIONAL,
         "required": [],
         "prefixed": True
@@ -868,7 +1048,7 @@ def compute_metric(model, arch=None):
     if arch == None:
         arch = inspect_model(model)
 
-    unet_keys = get_allowed_keys(arch, ["UNET-v1", "UNET-v1-Pix2Pix", "UNET-v2", "UNET-v2-Depth", "UNET-XL"])
+    unet_keys = get_allowed_keys(arch, ["UNET-v1", "UNET-v1-UP", "UNET-v1-DOWN", "UNET-v1-Pix2Pix", "UNET-v2", "UNET-v2-Depth", "UNET-XL", "UNET-XL-UP", "UNET-XL-DOWN"])
     vae_keys = get_allowed_keys(arch, ["VAE-v1"])
     clip_keys = get_allowed_keys(arch, ["CLIP-v1", "CLIP-v2", "CLIP-XL-AUX"])
 
