@@ -12,7 +12,7 @@ A Multipurpose toolkit for managing, editing and creating models.
   - ![Advanced Tab](assets/Screenshot2.png)
 </details>
 
-Install by: `Extenstions tab > Install from URL > Paste in this pages URL > Install`
+Install by: `Extensions tab > Install from URL > Paste in this pages URL > Install`
 
 ## Features
 - Cleaning/pruning models.
