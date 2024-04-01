@@ -96,6 +96,11 @@ COMPONENTS = {
         "source": "UNET-v2-Depth.txt",
         "prefix": "model.diffusion_model."
     },
+    "UNET-v2-Refiner": {
+        "keys": {},
+        "source": "UNET-v2-Refiner.txt",
+        "prefix": "model.diffusion_model."
+    },
     "UNET-XL-SD": {
         "keys": {},
         "source": "UNET-XL-SD.txt",
@@ -146,6 +151,16 @@ COMPONENTS = {
         "source": "VAE-v1-SD.txt",
         "prefix": "first_stage_model."
     },
+    "VAE-vX-S": {
+        "keys": {},
+        "source": "VAE-vX-S.txt",
+        "prefix": "first_stage_model."
+    },
+    "VAE-vX-D": {
+        "keys": {},
+        "source": "VAE-vX-D.txt",
+        "prefix": "first_stage_model."
+    },
     "CLIP-v1-SD": {
         "keys": {},
         "source": "CLIP-v1-SD.txt",
@@ -155,6 +170,11 @@ COMPONENTS = {
         "keys": {},
         "source": "CLIP-v1-SD.txt",
         "prefix": "cond_stage_model.transformer."
+    },
+    "CLIP-v1-SCPR": {
+        "keys": {},
+        "source": "CLIP-v1-SCPR.txt",
+        "prefix": "cond_stage_model."
     },
     "CLIP-v2-SD": {
         "keys": {},
@@ -246,6 +266,12 @@ COMPONENTS = {
         "source": "LoRA-XL-UNET-S.txt",
         "prefix": ""
     },
+    "LoRA-XL-UNET-D": {
+        "keys": {},
+        "shapes": {},
+        "source": "LoRA-XL-UNET-D.txt",
+        "prefix": ""
+    },
     "LyCO-XL-UNET": {
         "keys": {},
         "shapes": {},
@@ -281,6 +307,7 @@ COMPONENT_CLASS = {
     "UNET-v2-SD": "UNET-v2",
     "UNET-v2-Inpainting": "UNET-v2",
     "UNET-v2-Depth": "UNET-v2-Depth",
+    "UNET-v2-Refiner": "UNET-v2-Refiner",
     "UNET-XL-SD": "UNET-XL",
     "UNET-XL-Refiner": "UNET-XL-Refiner",
     "UNET-XL-Inpainting": "UNET-XL-Inpainting",
@@ -291,8 +318,11 @@ COMPONENT_CLASS = {
     "UNET-XL-TIME-EMB": "UNET-XL-TIME-EMB",
     "UNET-XL-MID": "UNET-XL-MID",
     "VAE-v1-SD": "VAE-v1",
+    "VAE-vX-S": "VAE-vX-S",
+    "VAE-vX-D": "VAE-vX-D",
     "CLIP-v1-SD": "CLIP-v1",
     "CLIP-v1-NAI": "CLIP-v1",
+    "CLIP-v1-SCPR": "CLIP-v1-SCPR",
     "CLIP-v2-SD": "CLIP-v2",
     "CLIP-v2-WD": "CLIP-v2",
     "CLIP-XL": "CLIP-XL",
@@ -305,6 +335,8 @@ COMPONENT_CLASS = {
     "LoRA-v1A-CLIP": "LoRA-v1A-CLIP",
     "LoRA-XL-UNET": "LoRA-XL-UNET",
     "LoRA-XL-UNET-S": "LoRA-XL-UNET-S",
+    "LoRA-XL-UNET-D": "LoRA-XL-UNET-D",
+    "LoRA-XL-UNET-SD": "LoRA-XL-UNET-SD",
     "LoRA-XL-CLIP": "LoRA-XL-CLIP",
     "LoRA-XL-AUX-CLIP": "LoRA-XL-AUX-CLIP",
     "LyCO-XL-UNET": "LyCO-XL-UNET",
@@ -394,6 +426,12 @@ ARCHITECTURES = {
         "required": [],
         "prefixed": False
     },
+    "UNET-v2-Refiner": {
+        "classes": ["UNET-v2-Refiner"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
     "UNET-XL": {
         "classes": ["UNET-XL"],
         "optional": [],
@@ -466,8 +504,20 @@ ARCHITECTURES = {
         "required": [],
         "prefixed": False
     },
+    "LoRA-XL-UNET-SD": {
+        "classes": ["LoRA-XL-UNET-S", "LoRA-XL-UNET-D"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
     "LoRA-XL-UNET-S": {
         "classes": ["LoRA-XL-UNET-S"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
+    "LoRA-XL-UNET-D": {
+        "classes": ["LoRA-XL-UNET-D"],
         "optional": [],
         "required": [],
         "prefixed": False
@@ -484,8 +534,26 @@ ARCHITECTURES = {
         "required": [],
         "prefixed": False
     },
+    "VAE-vX-S": {
+        "classes": ["VAE-vX-S"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
+    "VAE-vX-D": {
+        "classes": ["VAE-vX-D"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
     "CLIP-v1": {
         "classes": ["CLIP-v1"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
+    "CLIP-v1-SCPR": {
+        "classes": ["CLIP-v1-SCPR"],
         "optional": [],
         "required": [],
         "prefixed": False
@@ -562,6 +630,12 @@ ARCHITECTURES = {
         "required": [],
         "prefixed": True
     },
+    "SD-vX-VAE": {
+        "classes": ["VAE-vX-S", "VAE-vX-D"],
+        "optional": OPTIONAL,
+        "required": [],
+        "prefixed": False
+    },
     "SD-v1": {
         "classes": ["UNET-v1", "VAE-v1", "CLIP-v1"],
         "optional": OPTIONAL,
@@ -570,6 +644,12 @@ ARCHITECTURES = {
     },
     "SD-v1-ALT": {
         "classes": ["UNET-v1-UP", "UNET-v1-DOWN", "VAE-v1", "CLIP-v1"],
+        "optional": OPTIONAL,
+        "required": [],
+        "prefixed": True
+    },
+    "SD-v1-SCPR": {
+        "classes": ["UNET-v1", "VAE-v1", "CLIP-v1", "CLIP-v1-SCPR"],
         "optional": OPTIONAL,
         "required": [],
         "prefixed": True
@@ -598,6 +678,12 @@ ARCHITECTURES = {
         "required": [],
         "prefixed": True
     },
+    "SD-v2-Refiner": {
+        "classes": ["UNET-v2-Refiner", "VAE-v1", "CLIP-v2"],
+        "optional": OPTIONAL,
+        "required": [],
+        "prefixed": True
+    },
     "SD-XL": {
         "classes": ["UNET-XL", "VAE-v1", "CLIP-XL", "CLIP-XL-AUX"],
         "optional": OPTIONAL,
@@ -612,6 +698,12 @@ ARCHITECTURES = {
     },
     "SD-XL-Inpainting": {
         "classes": ["UNET-XL-Inpainting", "VAE-v1", "CLIP-XL", "CLIP-XL-AUX"],
+        "optional": OPTIONAL,
+        "required": [],
+        "prefixed": True
+    },
+    "SD-XL-FIX": {
+        "classes": ["UNET-XL", "VAE-v1", "CLIP-XL", "CLIP-XL-AUX", "VAE-vX-S"],
         "optional": OPTIONAL,
         "required": [],
         "prefixed": True
@@ -676,6 +768,18 @@ ARCHITECTURES = {
         "required": [],
         "prefixed": True
     },
+    "LoRA-XL-S": {
+        "classes": ["LoRA-XL-CLIP", "LoRA-XL-AUX-CLIP", "LoRA-XL-UNET-S"],
+        "optional": OPTIONAL,
+        "required": [],
+        "prefixed": True
+    },
+    "LoRA-XL-SD": {
+        "classes": ["LoRA-XL-CLIP", "LoRA-XL-AUX-CLIP", "LoRA-XL-UNET-SD"],
+        "optional": OPTIONAL,
+        "required": [],
+        "prefixed": True
+    },
     "LyCO-XL": {
         "classes": ["LyCO-XL-CLIP", "LyCO-XL-AUX-CLIP", "LyCO-XL-UNET"],
         "optional": OPTIONAL,
@@ -719,6 +823,12 @@ ARCHITECTURES = {
         "required": [],
         "prefixed": True
     },
+    "UNET-v2-Refiner-BROKEN": {
+        "classes": ["UNET-v2-Refiner"],
+        "optional": [],
+        "required": [],
+        "prefixed": True
+    },
     "UNET-XL-BROKEN": {
         "classes": ["UNET-XL"],
         "optional": [],
@@ -745,6 +855,12 @@ ARCHITECTURES = {
     },
     "CLIP-v1-BROKEN": {
         "classes": ["CLIP-v1"],
+        "optional": [],
+        "required": [],
+        "prefixed": True
+    },
+    "CLIP-v1-SCPR-BROKEN": {
+        "classes": ["CLIP-v1-SCPR"],
         "optional": [],
         "required": [],
         "prefixed": True
@@ -777,7 +893,7 @@ def tensor_size(t):
 def tensor_shape(key, data):
     if hasattr(data, 'shape'):
         shape = tuple(data.shape)
-        for c in ["LoRA-v1-UNET", "LoRA-v1-CLIP", "LoRA-v1A-CLIP", "LoRA-v1A-UNET", "LoRA-XL-CLIP", "LoRA-XL-AUX-CLIP", "LoRA-XL-UNET", "LoRA-XL-UNET-S", "LyCO-XL-CLIP", "LyCO-XL-AUX-CLIP", "LyCO-XL-UNET"]:
+        for c in ["LoRA-v1-UNET", "LoRA-v1-CLIP", "LoRA-v1A-CLIP", "LoRA-v1A-UNET", "LoRA-XL-CLIP", "LoRA-XL-AUX-CLIP", "LoRA-XL-UNET", "LoRA-XL-UNET-S", "LoRA-XL-UNET-D", "LyCO-XL-CLIP", "LyCO-XL-AUX-CLIP", "LyCO-XL-UNET"]:
             if key in COMPONENTS[c]['shapes']:
                 lora_shape = COMPONENTS[c]['shapes'][key]
                 if len(shape) == len(lora_shape):
@@ -1048,8 +1164,8 @@ def compute_metric(model, arch=None):
     if arch == None:
         arch = inspect_model(model)
 
-    unet_keys = get_allowed_keys(arch, ["UNET-v1", "UNET-v1-UP", "UNET-v1-DOWN", "UNET-v1-Pix2Pix", "UNET-v2", "UNET-v2-Depth", "UNET-XL", "UNET-XL-UP", "UNET-XL-DOWN"])
-    vae_keys = get_allowed_keys(arch, ["VAE-v1"])
+    unet_keys = get_allowed_keys(arch, ["UNET-v1", "UNET-v1-UP", "UNET-v1-DOWN", "UNET-v1-Pix2Pix", "UNET-v2", "UNET-v2-Depth", "UNET-v2-Refiner", "UNET-XL", "UNET-XL-UP", "UNET-XL-DOWN"])
+    vae_keys = get_allowed_keys(arch, ["VAE-v1", "SD-vX-VAE", "VAE-vX-S", "VAE-vX-D"])
     clip_keys = get_allowed_keys(arch, ["CLIP-v1", "CLIP-v2", "CLIP-XL-AUX"])
 
     unet, vae, clip = 0, 0, 0

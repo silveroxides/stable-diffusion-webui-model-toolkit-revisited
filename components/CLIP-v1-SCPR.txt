@@ -1,0 +1,2 @@
+logit_scale []
+text_projection [768,768]
