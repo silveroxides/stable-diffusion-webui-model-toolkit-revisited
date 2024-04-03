@@ -176,6 +176,11 @@ COMPONENTS = {
         "source": "CLIP-v1-SCPR.txt",
         "prefix": "cond_stage_model."
     },
+    "CLIP-v1-EMBED": {
+        "keys": {},
+        "source": "CLIP-v1-SD.txt",
+        "prefix": "embedding_manager.embedder.transformer.text_model."
+    },
     "CLIP-v2-SD": {
         "keys": {},
         "source": "CLIP-v2-SD.txt",
@@ -323,6 +328,7 @@ COMPONENT_CLASS = {
     "CLIP-v1-SD": "CLIP-v1",
     "CLIP-v1-NAI": "CLIP-v1",
     "CLIP-v1-SCPR": "CLIP-v1-SCPR",
+    "CLIP-v1-EMBED": "CLIP-v1",
     "CLIP-v2-SD": "CLIP-v2",
     "CLIP-v2-WD": "CLIP-v2",
     "CLIP-XL": "CLIP-XL",
@@ -558,6 +564,12 @@ ARCHITECTURES = {
         "required": [],
         "prefixed": False
     },
+    "CLIP-v1-EMBED": {
+        "classes": ["CLIP-v1-EMBED"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
     "CLIP-v2": {
         "classes": ["CLIP-v2"],
         "optional": [],
@@ -650,6 +662,12 @@ ARCHITECTURES = {
     },
     "SD-v1-SCPR": {
         "classes": ["UNET-v1", "VAE-v1", "CLIP-v1", "CLIP-v1-SCPR"],
+        "optional": OPTIONAL,
+        "required": [],
+        "prefixed": True
+    },
+    "SD-v1-DualCLIP": {
+        "classes": ["UNET-v1", "VAE-v1", "CLIP-v1", "CLIP-v1-EMBED"],
         "optional": OPTIONAL,
         "required": [],
         "prefixed": True
@@ -861,6 +879,12 @@ ARCHITECTURES = {
     },
     "CLIP-v1-SCPR-BROKEN": {
         "classes": ["CLIP-v1-SCPR"],
+        "optional": [],
+        "required": [],
+        "prefixed": True
+    },
+    "CLIP-v1-EMBED-BROKEN": {
+        "classes": ["CLIP-v1-EMBED"],
         "optional": [],
         "required": [],
         "prefixed": True
