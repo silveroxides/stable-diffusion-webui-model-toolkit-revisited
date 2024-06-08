@@ -106,6 +106,11 @@ COMPONENTS = {
         "source": "UNET-XL-SD.txt",
         "prefix": "model.diffusion_model."
     },
+    "UNET-XL-B-SD": {
+        "keys": {},
+        "source": "UNET-XL-B-SD.txt",
+        "prefix": "model.diffusion_model."
+    },
     "UNET-XL-Refiner": {
         "keys": {},
         "source": "UNET-XL-Refiner.txt",
@@ -114,6 +119,16 @@ COMPONENTS = {
     "UNET-XL-Inpainting": {
         "keys": {},
         "source": "UNET-XL-Inpainting.txt",
+        "prefix": "model.diffusion_model."
+    },
+    "UNET-XL-A-MAIN": {
+        "keys": {},
+        "source": "UNET-XL-A-MAIN.txt",
+        "prefix": "model.diffusion_model."
+    },
+    "UNET-XL-B-Inpainting": {
+        "keys": {},
+        "source": "UNET-XL-B-Inpainting.txt",
         "prefix": "model.diffusion_model."
     },
     "UNET-XL-UP": {
@@ -176,10 +191,20 @@ COMPONENTS = {
         "source": "CLIP-v1-SCPR.txt",
         "prefix": "cond_stage_model."
     },
+    "CLIP-v1-POS": {
+        "keys": {},
+        "source": "CLIP-v1-POS.txt",
+        "prefix": "cond_stage_model."
+    },
     "CLIP-v1-EMBED": {
         "keys": {},
         "source": "CLIP-v1-SD.txt",
         "prefix": "embedding_manager.embedder.transformer.text_model."
+    },
+    "CLIP-v1-TOKEN": {
+        "keys": {},
+        "source": "CLIP-v1-TOKEN.txt",
+        "prefix": "cond_stage_model.transformer.text_model."
     },
     "CLIP-v2-SD": {
         "keys": {},
@@ -199,12 +224,42 @@ COMPONENTS = {
     "CLIP-XL-Refiner": {
         "keys": {},
         "source": "CLIP-XL-SD.txt",
-        "prefix": "conditioner.embedders.0.model."
+        "prefix": "conditioner.embedders.1.model."
     },
     "CLIP-XL-AUX": {
         "keys": {},
         "source": "CLIP-v1-SD.txt",
         "prefix": "conditioner.embedders.0.transformer.text_model."
+    },
+    "CLIP-XL-AUZ": {
+        "keys": {},
+        "source": "CLIP-v1-SD.txt",
+        "prefix": "conditioner.embedders.2.transformer.text_model."
+    },
+    "CLIP-XL-SCPR": {
+        "keys": {},
+        "source": "CLIP-v1-SCPR.txt",
+        "prefix": "conditioner.embedders.0.transformer.text_model."
+    },
+    "CLIP-XL-POS": {
+        "keys": {},
+        "source": "CLIP-v1-POS.txt",
+        "prefix": "conditioner.embedders.0.transformer.text_model."
+    },
+    "CLIP-XL-TOKEN": {
+        "keys": {},
+        "source": "CLIP-XL-TOKEN.txt",
+        "prefix": "conditioner.embedders.1.model."
+    },
+    "CLIP-AUX-TOKEN": {
+        "keys": {},
+        "source": "CLIP-AUX-TOKEN.txt",
+        "prefix": "conditioner.embedders.0.model."
+    },
+    "CLIP-XL-TOKEMB": {
+        "keys": {},
+        "source": "CLIP-XL-TOKEMB.txt",
+        "prefix": ""
     },
     "Depth-v2-SD": {
         "keys": {},
@@ -271,6 +326,12 @@ COMPONENTS = {
         "source": "LoRA-XL-UNET-S.txt",
         "prefix": ""
     },
+    "LoRA-XL-UNET-M": {
+        "keys": {},
+        "shapes": {},
+        "source": "LoRA-XL-UNET-M.txt",
+        "prefix": ""
+    },
     "LoRA-XL-UNET-D": {
         "keys": {},
         "shapes": {},
@@ -314,8 +375,11 @@ COMPONENT_CLASS = {
     "UNET-v2-Depth": "UNET-v2-Depth",
     "UNET-v2-Refiner": "UNET-v2-Refiner",
     "UNET-XL-SD": "UNET-XL",
+    "UNET-XL-B-SD": "UNET-XL-B-SD",
     "UNET-XL-Refiner": "UNET-XL-Refiner",
     "UNET-XL-Inpainting": "UNET-XL-Inpainting",
+    "UNET-XL-A-MAIN": "UNET-XL-A-MAIN",
+    "UNET-XL-B-Inpainting": "UNET-XL-B-Inpainting",
     "UNET-XL-UP": "UNET-XL-UP",
     "UNET-XL-DOWN": "UNET-XL-DOWN",
     "UNET-XL-SKIP": "UNET-XL-SKIP",
@@ -328,12 +392,20 @@ COMPONENT_CLASS = {
     "CLIP-v1-SD": "CLIP-v1",
     "CLIP-v1-NAI": "CLIP-v1",
     "CLIP-v1-SCPR": "CLIP-v1-SCPR",
+    "CLIP-v1-POS": "CLIP-v1-POS",
     "CLIP-v1-EMBED": "CLIP-v1",
+    "CLIP-v1-TOKEN": "CLIP-TOKEN",
     "CLIP-v2-SD": "CLIP-v2",
     "CLIP-v2-WD": "CLIP-v2",
     "CLIP-XL": "CLIP-XL",
     "CLIP-XL-Refiner": "CLIP-XL",
     "CLIP-XL-AUX": "CLIP-XL-AUX",
+    "CLIP-XL-AUZ": "CLIP-XL-AUZ",
+    "CLIP-XL-SCPR": "CLIP-XL-SCPR",
+    "CLIP-XL-POS": "CLIP-XL-POS",
+    "CLIP-XL-TOKEN": "CLIP-XL-TOKEN",
+    "CLIP-AUX-TOKEN": "CLIP-AUX-TOKEN",
+    "CLIP-XL-TOKEMB": "CLIP-XL-TOKEMB",
     "Depth-v2-SD": "Depth-v2",
     "LoRA-v1-UNET": "LoRA-v1-UNET",
     "LoRA-v1-CLIP": "LoRA-v1-CLIP",
@@ -341,6 +413,7 @@ COMPONENT_CLASS = {
     "LoRA-v1A-CLIP": "LoRA-v1A-CLIP",
     "LoRA-XL-UNET": "LoRA-XL-UNET",
     "LoRA-XL-UNET-S": "LoRA-XL-UNET-S",
+    "LoRA-XL-UNET-M": "LoRA-XL-UNET-M",
     "LoRA-XL-UNET-D": "LoRA-XL-UNET-D",
     "LoRA-XL-UNET-SD": "LoRA-XL-UNET-SD",
     "LoRA-XL-CLIP": "LoRA-XL-CLIP",
@@ -369,6 +442,10 @@ OPTIONAL = [
     ("sqrt_recipm1_alphas_cumprod", (1000,)),
     ("logvar", (1000,)),
     ("visual_projection.weight", (1280,1664,)),
+    ("logit_scale", ()),
+    ("text_projection", (768,768,)),
+    ("positional_embedding", (248,768,)),
+    ("positional_embedding_res", (248,768,)),
 ]
 
 ARCHITECTURES = {
@@ -444,6 +521,12 @@ ARCHITECTURES = {
         "required": [],
         "prefixed": False
     },
+    "UNET-XL-B-SD": {
+        "classes": ["UNET-XL-B-SD"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
     "UNET-XL-Refiner": {
         "classes": ["UNET-XL-Refiner"],
         "optional": [],
@@ -452,6 +535,18 @@ ARCHITECTURES = {
     },
     "UNET-XL-Inpainting": {
         "classes": ["UNET-XL-Inpainting"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
+    "UNET-XL-A-MAIN": {
+        "classes": ["UNET-XL-A-MAIN"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
+    "UNET-XL-B-Inpainting": {
+        "classes": ["UNET-XL-B-Inpainting"],
         "optional": [],
         "required": [],
         "prefixed": False
@@ -522,6 +617,12 @@ ARCHITECTURES = {
         "required": [],
         "prefixed": False
     },
+    "LoRA-XL-UNET-M": {
+        "classes": ["LoRA-XL-UNET-M"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
     "LoRA-XL-UNET-D": {
         "classes": ["LoRA-XL-UNET-D"],
         "optional": [],
@@ -564,8 +665,26 @@ ARCHITECTURES = {
         "required": [],
         "prefixed": False
     },
+    "CLIP-v1-POS": {
+        "classes": ["CLIP-v1-POS"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
     "CLIP-v1-EMBED": {
         "classes": ["CLIP-v1-EMBED"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
+    "CLIP-v1-TOKEN": {
+        "classes": ["CLIP-v1-TOKEN"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
+    "CLIP-v1-DUAL": {
+        "classes": ["CLIP-v1-SD", "CLIP-v1-EMBED"],
         "optional": [],
         "required": [],
         "prefixed": False
@@ -584,6 +703,42 @@ ARCHITECTURES = {
     },
     "CLIP-XL-AUX": {
         "classes": ["CLIP-XL-AUX"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
+    "CLIP-XL-AUZ": {
+        "classes": ["CLIP-XL-AUZ"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
+    "CLIP-XL-SCPR": {
+        "classes": ["CLIP-XL-SCPR"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
+    "CLIP-XL-POS": {
+        "classes": ["CLIP-XL-POS"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
+    "CLIP-XL-TOKEN": {
+        "classes": ["CLIP-XL-TOKEN"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
+    "CLIP-AUX-TOKEN": {
+        "classes": ["CLIP-AUX-TOKEN"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
+    "CLIP-XL-TOKEMB": {
+        "classes": ["CLIP-XL-TOKEMB"],
         "optional": [],
         "required": [],
         "prefixed": False
@@ -641,6 +796,18 @@ ARCHITECTURES = {
         "optional": [],
         "required": [],
         "prefixed": True
+    },
+    "SD-UNET-XL-SD": {
+        "classes": ["UNET-XL-A-MAIN", "UNET-XL-B-SD"],
+        "optional": OPTIONAL,
+        "required": [],
+        "prefixed": False
+    },
+    "SD-UNET-XL-Inpainting": {
+        "classes": ["UNET-XL-A-MAIN", "UNET-XL-B-Inpainting"],
+        "optional": OPTIONAL,
+        "required": [],
+        "prefixed": False
     },
     "SD-vX-VAE": {
         "classes": ["VAE-vX-S", "VAE-vX-D"],
@@ -720,30 +887,36 @@ ARCHITECTURES = {
         "required": [],
         "prefixed": True
     },
-    "SD-XL-FIX": {
-        "classes": ["UNET-XL", "VAE-v1", "CLIP-XL", "CLIP-XL-AUX", "VAE-vX-S"],
+    "SD-XL-TriCLIP": {
+        "classes": ["UNET-XL", "VAE-v1", "CLIP-XL", "CLIP-XL-AUX", "CLIP-XL-AUZ"],
         "optional": OPTIONAL,
         "required": [],
         "prefixed": True
     },
+#    "SD-XL-FIX": {
+#        "classes": ["UNET-XL", "VAE-v1", "CLIP-XL", "CLIP-XL-AUX", "VAE-vX-S"],
+#        "optional": OPTIONAL,
+#        "required": [],
+#        "prefixed": True
+#    },
     "SD-XL-ALT": {
         "classes": ["UNET-XL-UP", "UNET-XL-DOWN", "VAE-v1", "CLIP-XL", "CLIP-XL-AUX"],
         "optional": OPTIONAL,
         "required": [],
         "prefixed": True
     },
-    "SD-XL-LoRAXL-CLIP": {
-        "classes": ["LoRA-XL-CLIP", "LoRA-XL-AUX-CLIP"],
-        "optional": OPTIONAL,
-        "required": [],
-        "prefixed": True
-    },
-    "SD-XL-LoRAUX-CLIP": {
-        "classes": ["LoRA-XL-AUX-CLIP"],
-        "optional": OPTIONAL,
-        "required": [],
-        "prefixed": True
-    },
+#    "SD-XL-LoRAXL-CLIP": {
+#        "classes": ["LoRA-XL-CLIP", "LoRA-XL-AUX-CLIP"],
+#        "optional": OPTIONAL,
+#        "required": [],
+#        "prefixed": True
+#    },
+#    "SD-XL-LoRAUX-CLIP": {
+#        "classes": ["LoRA-XL-AUX-CLIP"],
+#        "optional": OPTIONAL,
+#        "required": [],
+#        "prefixed": True
+#    },
     "EMA-v1": {
         "classes": ["EMA-UNET-v1"],
         "optional": OPTIONAL,
@@ -788,6 +961,12 @@ ARCHITECTURES = {
     },
     "LoRA-XL-S": {
         "classes": ["LoRA-XL-CLIP", "LoRA-XL-AUX-CLIP", "LoRA-XL-UNET-S"],
+        "optional": OPTIONAL,
+        "required": [],
+        "prefixed": True
+    },
+    "LoRA-XL-M": {
+        "classes": ["LoRA-XL-CLIP", "LoRA-XL-AUX-CLIP", "LoRA-XL-UNET-M"],
         "optional": OPTIONAL,
         "required": [],
         "prefixed": True
@@ -917,7 +1096,7 @@ def tensor_size(t):
 def tensor_shape(key, data):
     if hasattr(data, 'shape'):
         shape = tuple(data.shape)
-        for c in ["LoRA-v1-UNET", "LoRA-v1-CLIP", "LoRA-v1A-CLIP", "LoRA-v1A-UNET", "LoRA-XL-CLIP", "LoRA-XL-AUX-CLIP", "LoRA-XL-UNET", "LoRA-XL-UNET-S", "LoRA-XL-UNET-D", "LyCO-XL-CLIP", "LyCO-XL-AUX-CLIP", "LyCO-XL-UNET"]:
+        for c in ["LoRA-v1-UNET", "LoRA-v1-CLIP", "LoRA-v1A-CLIP", "LoRA-v1A-UNET", "LoRA-XL-CLIP", "LoRA-XL-AUX-CLIP", "LoRA-XL-UNET", "LoRA-XL-UNET-S", "LoRA-XL-UNET-M", "LoRA-XL-UNET-D", "LyCO-XL-CLIP", "LyCO-XL-AUX-CLIP", "LyCO-XL-UNET"]:
             if key in COMPONENTS[c]['shapes']:
                 lora_shape = COMPONENTS[c]['shapes'][key]
                 if len(shape) == len(lora_shape):
@@ -1188,7 +1367,7 @@ def compute_metric(model, arch=None):
     if arch == None:
         arch = inspect_model(model)
 
-    unet_keys = get_allowed_keys(arch, ["UNET-v1", "UNET-v1-UP", "UNET-v1-DOWN", "UNET-v1-Pix2Pix", "UNET-v2", "UNET-v2-Depth", "UNET-v2-Refiner", "UNET-XL", "UNET-XL-UP", "UNET-XL-DOWN"])
+    unet_keys = get_allowed_keys(arch, ["UNET-v1", "UNET-v1-UP", "UNET-v1-DOWN", "UNET-v1-Pix2Pix", "UNET-v2", "UNET-v2-Depth", "UNET-v2-Refiner", "UNET-XL", "UNET-XL-UP", "UNET-XL-DOWN", "UNET-XL-A-MAIN", "UNET-XL-B-Inpainting", "UNET-XL-B-SD"])
     vae_keys = get_allowed_keys(arch, ["VAE-v1", "SD-vX-VAE", "VAE-vX-S", "VAE-vX-D"])
     clip_keys = get_allowed_keys(arch, ["CLIP-v1", "CLIP-v2", "CLIP-XL-AUX"])
 

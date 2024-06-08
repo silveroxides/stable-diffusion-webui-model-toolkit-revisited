@@ -1,0 +1,2 @@
+conditioner.embedders.0.transformer.text_model.embeddings.token_embedding.weight [49408,768]
+conditioner.embedders.1.model.token_embedding.weight [49408,1280]
