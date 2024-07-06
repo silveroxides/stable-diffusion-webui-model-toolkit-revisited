@@ -141,6 +141,11 @@ COMPONENTS = {
         "source": "UNET-XL-DOWN.txt",
         "prefix": "model_ema.diffusion_model."
     },
+    "UNET-v3-MMDIT": {
+        "keys": {},
+        "source": "UNET-v3-MMDIT.txt",
+        "prefix": "model.diffusion_model."
+    },
 #    "UNET-XL-SKIP": {
 #        "keys": {},
 #        "source": "UNET-v1-SKIP.txt",
@@ -164,6 +169,11 @@ COMPONENTS = {
     "VAE-v1-SD": {
         "keys": {},
         "source": "VAE-v1-SD.txt",
+        "prefix": "first_stage_model."
+    },
+    "VAE-v3-SD": {
+        "keys": {},
+        "source": "VAE-v3-SD.txt",
         "prefix": "first_stage_model."
     },
     "VAE-vX-S": {
@@ -206,6 +216,11 @@ COMPONENTS = {
         "source": "CLIP-v1-TOKEN.txt",
         "prefix": "cond_stage_model.transformer.text_model."
     },
+    #"CLIP-v1-DIFF": {
+    #    "keys": {},
+    #    "source": "CLIP-v1-DIFF.txt",
+    #    "prefix": "text_model."
+    #},
     "CLIP-v2-SD": {
         "keys": {},
         "source": "CLIP-v2-SD.txt",
@@ -251,6 +266,16 @@ COMPONENTS = {
         "source": "CLIP-XL-TOKEN.txt",
         "prefix": "conditioner.embedders.1.model."
     },
+    #"CLIP-XL-DIFF": {
+    #    "keys": {},
+    #    "source": "CLIP-XL-DIFF.txt",
+    #    "prefix": ""
+    #},
+    "CLIP-XL-TOKEN": {
+        "keys": {},
+        "source": "CLIP-XL-TOKEN.txt",
+        "prefix": "conditioner.embedders.1.model."
+    },
     "CLIP-AUX-TOKEN": {
         "keys": {},
         "source": "CLIP-AUX-TOKEN.txt",
@@ -260,6 +285,31 @@ COMPONENTS = {
         "keys": {},
         "source": "CLIP-XL-TOKEMB.txt",
         "prefix": ""
+    },
+    "CLIP-v3-G": {
+        "keys": {},
+        "source": "CLIP-v3-G.txt",
+        "prefix": "text_encoders.clip_g.transformer."
+    },
+    #"CLIP-v3-GB": {
+    #    "keys": {},
+    #    "source": "CLIP-v3-GB.txt",
+    #    "prefix": "text_encoders.clip_g.transformer.text_model."
+    #},
+    #"CLIP-v3-GP": {
+    #    "keys": {},
+    #    "source": "CLIP-v3-GP.txt",
+    #    "prefix": "text_encoders.clip_g.transformer."
+    #},
+    "CLIP-v3-L": {
+        "keys": {},
+        "source": "CLIP-v3-L.txt",
+        "prefix": "text_encoders.clip_l.transformer."
+    },
+    "CLIP-v3-T5": {
+        "keys": {},
+        "source": "CLIP-v3-T5.txt",
+        "prefix": "text_encoders.t5xxl.transformer."
     },
     "Depth-v2-SD": {
         "keys": {},
@@ -374,6 +424,7 @@ COMPONENT_CLASS = {
     "UNET-v2-Inpainting": "UNET-v2",
     "UNET-v2-Depth": "UNET-v2-Depth",
     "UNET-v2-Refiner": "UNET-v2-Refiner",
+    "UNET-v3-MMDIT": "UNET-v3-MMDIT",
     "UNET-XL-SD": "UNET-XL",
     "UNET-XL-B-SD": "UNET-XL-B-SD",
     "UNET-XL-Refiner": "UNET-XL-Refiner",
@@ -387,6 +438,7 @@ COMPONENT_CLASS = {
     "UNET-XL-TIME-EMB": "UNET-XL-TIME-EMB",
     "UNET-XL-MID": "UNET-XL-MID",
     "VAE-v1-SD": "VAE-v1",
+    "VAE-v3-SD": "VAE-v3",
     "VAE-vX-S": "VAE-vX-S",
     "VAE-vX-D": "VAE-vX-D",
     "CLIP-v1-SD": "CLIP-v1",
@@ -397,6 +449,11 @@ COMPONENT_CLASS = {
     "CLIP-v1-TOKEN": "CLIP-TOKEN",
     "CLIP-v2-SD": "CLIP-v2",
     "CLIP-v2-WD": "CLIP-v2",
+    "CLIP-v3-L": "CLIP-v3-L",
+    "CLIP-v3-G": "CLIP-v3-G",
+    # "CLIP-v3-GB": "CLIP-v3-GB",
+    # "CLIP-v3-GP": "CLIP-v3-GP",
+    "CLIP-v3-T5": "CLIP-v3-T5",
     "CLIP-XL": "CLIP-XL",
     "CLIP-XL-Refiner": "CLIP-XL",
     "CLIP-XL-AUX": "CLIP-XL-AUX",
@@ -511,6 +568,12 @@ ARCHITECTURES = {
     },
     "UNET-v2-Refiner": {
         "classes": ["UNET-v2-Refiner"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
+    "UNET-v3-MMDIT": {
+        "classes": ["UNET-v3-MMDIT"],
         "optional": [],
         "required": [],
         "prefixed": False
@@ -695,6 +758,36 @@ ARCHITECTURES = {
         "required": [],
         "prefixed": False
     },
+    "CLIP-v3-L": {
+        "classes": ["CLIP-v3-L"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
+    "CLIP-v3-G": {
+        "classes": ["CLIP-v3-G"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
+    # "CLIP-v3-GB": {
+    #     "classes": ["CLIP-v3-GB"],
+    #     "optional": [],
+    #     "required": [],
+    #     "prefixed": False
+    # },
+    # "CLIP-v3-GP": {
+    #     "classes": ["CLIP-v3-GP"],
+    #     "optional": [],
+    #     "required": [],
+    #     "prefixed": False
+    # },
+    "CLIP-v3-T5": {
+        "classes": ["CLIP-v3-T5"],
+        "optional": [],
+        "required": [],
+        "prefixed": False
+    },
     "CLIP-XL": {
         "classes": ["CLIP-XL"],
         "optional": [],
@@ -869,6 +962,18 @@ ARCHITECTURES = {
         "required": [],
         "prefixed": True
     },
+    "SD-v3-Triple": {
+        "classes": ["UNET-v3-MMDIT", "VAE-v3", "CLIP-v3-L", "CLIP-v3-G", "CLIP-v3-T5"],
+        "optional": OPTIONAL,
+        "required": [],
+        "prefixed": True
+    },
+    "SD-v3-Dual": {
+        "classes": ["UNET-v3-MMDIT", "VAE-v3", "CLIP-v3-L", "CLIP-v3-G"],
+        "optional": OPTIONAL,
+        "required": [],
+        "prefixed": True
+    },
     "SD-XL": {
         "classes": ["UNET-XL", "VAE-v1", "CLIP-XL", "CLIP-XL-AUX"],
         "optional": OPTIONAL,
@@ -1026,6 +1131,12 @@ ARCHITECTURES = {
         "required": [],
         "prefixed": True
     },
+    "UNET-v3-MMDIT-BROKEN": {
+        "classes": ["UNET-v3-MMDIT"],
+        "optional": [],
+        "required": [],
+        "prefixed": True
+    },
     "UNET-XL-BROKEN": {
         "classes": ["UNET-XL"],
         "optional": [],
@@ -1050,6 +1161,12 @@ ARCHITECTURES = {
         "required": [],
         "prefixed": True
     },
+    "VAE-v3-BROKEN": {
+        "classes": ["VAE-v3"],
+        "optional": [],
+        "required": [],
+        "prefixed": True
+    },
     "CLIP-v1-BROKEN": {
         "classes": ["CLIP-v1"],
         "optional": [],
@@ -1070,6 +1187,24 @@ ARCHITECTURES = {
     },
     "CLIP-v2-BROKEN": {
         "classes": ["CLIP-v2"],
+        "optional": [],
+        "required": [],
+        "prefixed": True
+    },
+    "CLIP-v3-L-BROKEN": {
+        "classes": ["CLIP-v3-L"],
+        "optional": [],
+        "required": [],
+        "prefixed": True
+    },
+    "CLIP-v3-G-BROKEN": {
+        "classes": ["CLIP-v3-G"],
+        "optional": [],
+        "required": [],
+        "prefixed": True
+    },
+    "CLIP-v3-T5-BROKEN": {
+        "classes": ["CLIP-v3-T5"],
         "optional": [],
         "required": [],
         "prefixed": True
@@ -1367,13 +1502,13 @@ def compute_metric(model, arch=None):
     if arch == None:
         arch = inspect_model(model)
 
-    unet_keys = get_allowed_keys(arch, ["UNET-v1", "UNET-v1-UP", "UNET-v1-DOWN", "UNET-v1-Pix2Pix", "UNET-v2", "UNET-v2-Depth", "UNET-v2-Refiner", "UNET-XL", "UNET-XL-UP", "UNET-XL-DOWN", "UNET-XL-A-MAIN", "UNET-XL-B-Inpainting", "UNET-XL-B-SD"])
-    vae_keys = get_allowed_keys(arch, ["VAE-v1", "SD-vX-VAE", "VAE-vX-S", "VAE-vX-D"])
-    clip_keys = get_allowed_keys(arch, ["CLIP-v1", "CLIP-v2", "CLIP-XL-AUX"])
+    unet_keys = get_allowed_keys(arch, ["UNET-v1", "UNET-v1-UP", "UNET-v1-DOWN", "UNET-v1-Pix2Pix", "UNET-v2", "UNET-v2-Depth", "UNET-v2-Refiner", "UNET-v3-MMDIT", "UNET-XL", "UNET-XL-UP", "UNET-XL-DOWN", "UNET-XL-A-MAIN", "UNET-XL-B-Inpainting", "UNET-XL-B-SD"])
+    vae_keys = get_allowed_keys(arch, ["VAE-v1", "SD-vX-VAE", "VAE-vX-S", "VAE-vX-D", "VAE-v3"])
+    clip_keys = get_allowed_keys(arch, ["CLIP-v1", "CLIP-v2", "CLIP-XL-AUX", "CLIP-v3-L"])
 
     unet, vae, clip = 0, 0, 0
 
-    is_clip_v1 = "CLIP-v1" in next(iter(arch.values())) or "CLIP-XL-AUX" in next(iter(arch.values()))
+    is_clip_v1 = "CLIP-v1" in next(iter(arch.values())) or "CLIP-XL-AUX" in next(iter(arch.values())) or "CLIP-v3-L" in next(iter(arch.values()))
 
     for k in model:
         kk = (k, tensor_shape(k, model[k]))
