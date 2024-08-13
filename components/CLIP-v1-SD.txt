@@ -1,5 +1,4 @@
 embeddings.position_embedding.weight [77,768]
-embeddings.position_ids [1,77]
 embeddings.token_embedding.weight [49408,768]
 encoder.layers.0.layer_norm1.bias [768]
 encoder.layers.0.layer_norm1.weight [768]
