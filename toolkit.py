@@ -501,6 +501,7 @@ OPTIONAL = [
     ("visual_projection.weight", (1280,1664,)),
     ("logit_scale", ()),
     ("text_projection", (768,768,)),
+    ("embeddings.position_ids", (1,77,)),
     ("positional_embedding", (248,768,)),
     ("positional_embedding_res", (248,768,)),
 ]
